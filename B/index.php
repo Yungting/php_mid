@@ -31,7 +31,9 @@
 		}
 		return $ans;
 	}
-	$ans = b3(100);
+	if(isset($_POST['num'])){
+		$ans = b3($_POST['num']);
+	}
 	if(isset($_POST['oper'])){
 		if($_POST['oper']==0){
 			$ans = add($_POST['n1'],$_POST['n2']);
@@ -62,6 +64,9 @@
 		<input type="radio" name="oper" value="4">指數<br/>
 		<input type="submit" value="計算"></input>
 	</form>
+	<?php
+		include 'form.php';
+	?>
 	<?php echo "ANS=".$ans; ?>
 </body>
 </html>
