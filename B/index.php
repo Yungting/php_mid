@@ -11,7 +11,27 @@
 	function div($x,$y){
 		return $x/$y;
 	}
-	$ans = 0;
+	function b3($z){
+		for($i=1;$i<$z;$i++){
+			$len = strlen($i);
+			if($len<2){
+				$x = 0;
+				$y = (int)$i;
+				if ($i == pow(($x+$y), 2)){
+					$ans .= $i." ";
+				}
+			}else{
+				$div = $len/2;
+				$x = (int)substr($i, 0, $div);
+				$y = (int)substr($i, $div, $len);
+				if ($i == pow(($x+$y), 2)){
+					$ans .= $i." ";
+				}
+			}
+		}
+		return $ans;
+	}
+	$ans = b3(100);
 	if(isset($_POST['oper'])){
 		if($_POST['oper']==0){
 			$ans = add($_POST['n1'],$_POST['n2']);
